@@ -11,3 +11,9 @@
 
 #!.yarn/cache
 .pnp.*
+
+# Mac OS files
+.DS_Store
+
+# Editor Files
+.editorconfig

@@ -1,0 +1,5 @@
+# Virtual Environment
+.venv
+
+# PyCharm
+#  .gitignore file for PyCharm IDE is in its own subdirectory .idea

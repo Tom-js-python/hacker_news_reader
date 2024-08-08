@@ -1,4 +1,13 @@
 {
   "name": "hacker_news_reader",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Scrapes the Hacker News website and lists the top stories by points",
+  "author": "Tom Brown <tomrembrown@proton.me>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tom-js-python/hacker_news_reader.git"
+  },
   "packageManager": "yarn@4.4.0"
 }
