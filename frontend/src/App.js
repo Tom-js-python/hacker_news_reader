@@ -14,13 +14,12 @@ function App() {
         // Using fetch to fetch the api from 
         // flask server it will be redirected to proxy
         fetch("http://127.0.0.1:5000/test").then((res) =>
-            console.log(res)
-            // res.json().then((data) => {
-            //     // Setting a data from api
-            //     setdata({
-            //         message: data.Message
-            //     });
-            // })
+            res.json().then((data) => {
+                // Setting a data from api
+                setdata({
+                    message: data.Message
+                });
+            })
         );
     }, []);
  

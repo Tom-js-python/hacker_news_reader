@@ -1,9 +1,15 @@
 from flask import Flask, jsonify, request
 from flask_restful import Resource, Api
+from flask_cors import CORS, cross_origin
 from hacker_news_scraper import get_top_links
 
 # creating the flask app
 app = Flask(__name__)
+
+# Allow Cross-origin resource requests
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 # creating an API object
 api = Api(app)
 
