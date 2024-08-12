@@ -3,10 +3,18 @@ import TheMenuBar from './components/TheMenuBar.vue'
 import TheLinksTable from './components/TheLinksTable.vue'
 import { ref } from 'vue'
 
-const dataLoaded = ref(false)
+const API_URL = 'http://127.0.0.1:5000/test'
+const data_message = ref('No Links Are Loaded')
 
-function onToggle(isLoaded) {
-  dataLoaded.value = isLoaded
+async function onToggle(isLoaded) {
+  data_message.value = 'Scraping Hacker News Site...'
+  if (isLoaded) {
+    let raw_data = await fetch(API_URL)
+    let data = await raw_data.json()
+    data_message.value = data.Message
+  } else {
+    data_message.value = 'No Links Are Loaded'
+  }
 }
 </script>
 
@@ -15,7 +23,7 @@ function onToggle(isLoaded) {
 
   <main>
     <TheMenuBar @toggle="onToggle" />
-    <TheLinksTable :data-loaded="dataLoaded" />
+    <TheLinksTable :data-message="data_message" />
   </main>
 </template>
 

@@ -1,9 +1,9 @@
 <script setup>
 const props = defineProps({
-  dataLoaded: Boolean
+  dataMessage: String
 })
 </script>
 
 <template>
-  <p>{{ dataLoaded ? 'Data Loaded!' : 'Data Not Loaded' }}</p>
+  <p>{{ dataMessage }}</p>
 </template>
