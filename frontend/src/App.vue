@@ -7,14 +7,22 @@ const API_URL = 'http://127.0.0.1:5000/'
 const data_message = ref('No Links Are Loaded')
 const news_links = ref([])
 
-async function onToggle(isLoaded) {
+async function onToggle(formInfo) {
   data_message.value = 'Scraping Hacker News Site...'
+  let isLoaded = formInfo.dataLoaded
+  let numLinks = formInfo.numLinks
+  let numPages = formInfo.numPages
+  let searchTerm = formInfo.searchTerm
+  let minPoints = formInfo.minPoints
+  console.log('numLinks: ' + numLinks)
+  console.log('numPages: ' + numPages)
+  console.log('searchTerm: ' + searchTerm)
+  console.log('minPoints: ' + minPoints)
   if (isLoaded) {
     let raw_data = await fetch(API_URL)
     let data = await raw_data.json()
     data_message.value = 'Loaded'
     news_links.value = data.NewsLinks
-    console.log(news_links.value)
   } else {
     data_message.value = 'No Links Are Loaded'
   }
@@ -22,7 +30,7 @@ async function onToggle(isLoaded) {
 </script>
 
 <template>
-  <header>Hacker News Web Scraper</header>
+  <header><h1>Hacker News Web Scraper</h1></header>
 
   <main>
     <TheMenuBar @toggle="onToggle" />
@@ -32,6 +40,8 @@ async function onToggle(isLoaded) {
 
 <style scoped>
 header {
+  text-align: center;
   line-height: 1.5;
+  padding-bottom: 2rem;
 }
 </style>
