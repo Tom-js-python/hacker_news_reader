@@ -1,16 +1,17 @@
 <script setup>
+const emit = defineEmits(['toggle'])
 import { ref } from 'vue'
 
-const data = ref('Data Not Loaded')
+const dataLoaded = ref(false)
 
 function loadData() {
-  data.value = 'Data Loaded!'
+  dataLoaded.value = !dataLoaded.value
+  emit('toggle', dataLoaded.value)
 }
 </script>
 
 <template>
-  <button @click="loadData">Load Data</button>
-  <p>{{ data }}</p>
+  <button @click="loadData">{{ dataLoaded ? 'Reset Data' : 'Load Data' }}</button>
 </template>
 
 <style scoped>

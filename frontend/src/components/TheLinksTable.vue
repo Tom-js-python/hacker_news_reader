@@ -1,5 +1,9 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  dataLoaded: Boolean
+})
+</script>
 
 <template>
-  <p>Data Should be loaded here</p>
+  <p>{{ dataLoaded ? 'Data Loaded!' : 'Data Not Loaded' }}</p>
 </template>

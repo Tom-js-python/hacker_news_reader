@@ -1,14 +1,21 @@
 <script setup>
 import TheMenuBar from './components/TheMenuBar.vue'
 import TheLinksTable from './components/TheLinksTable.vue'
+import { ref } from 'vue'
+
+const dataLoaded = ref(false)
+
+function onToggle(isLoaded) {
+  dataLoaded.value = isLoaded
+}
 </script>
 
 <template>
   <header>Hacker News Web Scraper</header>
 
   <main>
-    <TheMenuBar />
-    <TheLinksTable />
+    <TheMenuBar @toggle="onToggle" />
+    <TheLinksTable :data-loaded="dataLoaded" />
   </main>
 </template>
 
