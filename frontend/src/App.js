@@ -5,23 +5,26 @@ import "./App.css";
 function App() {
     // usestate for setting a javascript
     // object for storing and using data
-    const [data, setdata] = useState({
-        message: ''
-    });
+    const [data, setData] = useState(null);
  
     // Using useEffect for single rendering
     useEffect(() => {
+        let ignore = false
+        setData(null)
         // Using fetch to fetch the api from 
         // flask server it will be redirected to proxy
         fetch("http://127.0.0.1:5000/test").then((res) =>
             res.json().then((data) => {
-                // Setting a data from api
-                setdata({
-                    message: data.Message
-                });
+                if (!ignore) {
+                    // Setting a data from api
+                    setData(data);
+                }
             })
         );
-    }, []);
+        return () => {
+            ignore = true
+        }
+    }, [data]);
  
     return (
         <div className="App">
