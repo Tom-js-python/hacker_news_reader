@@ -29,8 +29,10 @@ const props = defineProps({
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;
-  font-size: 0.9em;
-  font-family: sans-serif;
+  font-family: -apple-system, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  font-size: 14px;
+  font-weight: 500;
   min-width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
@@ -38,6 +40,8 @@ const props = defineProps({
   background-color: #009879;
   color: #ffffff;
   text-align: left;
+  font-size: 16px;
+  font-weight: 600;
 }
 .styled-table th,
 .styled-table td {

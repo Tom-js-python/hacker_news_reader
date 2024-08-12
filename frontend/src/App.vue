@@ -44,4 +44,8 @@ header {
   line-height: 1.5;
   padding-bottom: 2rem;
 }
+h1 {
+  font-weight: 700;
+  font-stretch: semi-expanded;
+}
 </style>

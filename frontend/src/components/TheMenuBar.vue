@@ -25,10 +25,10 @@ function loadData() {
 <template>
   <p>
     Get the top <input v-model="numLinks" /> links from the first <input v-model="numPages" /> pages
-    of the Hacker News Site which have a minimum number of points of <input v-model="minPoints" />
+    of the Hacker News Site which have a minimum of <input v-model="minPoints" /> points.
   </p>
   <p>
-    Ensure they contain this search term:
+    Ensure their titles contain this search term:
     <input v-model="searchTerm" class="search-term" />. Leave blank for no search term.
   </p>
   <button @click="loadData">{{ dataLoaded ? 'Reset Data' : 'Load Data' }}</button>
@@ -42,7 +42,7 @@ button {
   text-align: center;
   margin: 1em auto;
   display: flex;
-  padding: 1rem;
+  padding: 1.2rem;
   appearance: none;
   background-color: #fafbfc;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -55,8 +55,8 @@ button {
   cursor: pointer;
   font-family: -apple-system, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji';
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
   line-height: 20px;
   list-style: none;
   padding: 6px 16px;
