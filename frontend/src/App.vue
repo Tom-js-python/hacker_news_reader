@@ -10,16 +10,15 @@ const news_links = ref([])
 async function onToggle(formInfo) {
   data_message.value = 'Scraping Hacker News Site...'
   let isLoaded = formInfo.dataLoaded
-  let numLinks = formInfo.numLinks
-  let numPages = formInfo.numPages
-  let searchTerm = formInfo.searchTerm
-  let minPoints = formInfo.minPoints
-  console.log('numLinks: ' + numLinks)
-  console.log('numPages: ' + numPages)
-  console.log('searchTerm: ' + searchTerm)
-  console.log('minPoints: ' + minPoints)
+  const params = new URLSearchParams({
+    num_links: formInfo.numLinks,
+    num_pages: formInfo.numPages,
+    search_term: formInfo.searchTerm,
+    min_points: formInfo.minPoints
+  })
   if (isLoaded) {
-    let raw_data = await fetch(API_URL)
+    const total_url = API_URL + '?' + params.toString()
+    let raw_data = await fetch(total_url)
     let data = await raw_data.json()
     data_message.value = 'Loaded'
     news_links.value = data.NewsLinks

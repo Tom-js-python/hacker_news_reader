@@ -116,18 +116,18 @@ def _extract_info_from_row(this_row):
     return title, href, is_error
 
 
-def _filter_hacker_news_links_from_page(top_rows, vote_spans):
+def _filter_hacker_news_links_from_page(top_rows, vote_spans, search_term, min_points):
     top_rows_dict = _convert_rows_to_dict_by_id(top_rows)
 
     this_pages_links = []
     for vote_span in vote_spans:
         news_id, points, is_error = _extract_info_from_vote_span(vote_span)
         if not is_error:
-            if points >= POINTS_MINIMUM:
+            if points >= min_points:
                 this_row, is_error = _find_row_with_id(top_rows_dict, news_id)
                 if not is_error:
                     title, href, is_error = _extract_info_from_row(this_row)
-                    if not is_error:
+                    if not is_error and (len(search_term) == 0 or str(search_term).lower() in str(title).lower()):
                         this_pages_links.append(NewsLink(title, href, points))
 
     return this_pages_links
@@ -137,14 +137,14 @@ def _sort_news_links_by_points(hacker_news_links):
     return sorted(hacker_news_links, key=lambda d: d.points, reverse=True)
 
 
-def get_top_links(num_pages=15, num_links=5):
+def get_top_links(num_links=5, num_pages=15, search_term='', min_points=400):
     page_links = _build_page_links_list(MAIN_PAGE_LINK, num_pages, ADDITIONAL_PAGE_START_STRING)
 
     hacker_news_links = []
 
     for page_link in page_links:
         top_rows, vote_spans = _get_rows_and_spans_from_page(page_link)
-        hacker_news_links += _filter_hacker_news_links_from_page(top_rows, vote_spans)
+        hacker_news_links += _filter_hacker_news_links_from_page(top_rows, vote_spans, search_term, min_points)
 
     hacker_news_links = _sort_news_links_by_points(hacker_news_links)
 

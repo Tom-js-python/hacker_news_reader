@@ -31,7 +31,12 @@ class Hello(Resource):
 class NewsLinks(Resource):
 
     def get(self):
-        news_links = get_top_links()
+        num_links = int(request.args.get('num_links'))
+        num_pages = int(request.args.get('num_pages'))
+        search_term = request.args.get('search_term')
+        min_points = int(request.args.get('min_points'))
+
+        news_links = get_top_links(num_links, num_pages, search_term, min_points)
 
         # Convert the news_links from a list of objects to list of dictionaries so jsonify will work
         news_links_as_dict = []
