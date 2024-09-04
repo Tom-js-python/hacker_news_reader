@@ -1,6 +1,6 @@
 # Hacker News Scraper and Reader
-This application scrapes the first n pages (supplied by the user) of the Hacker News website, and then returns the top pages (number of pages supplied by the user) to a table on the front-end. 
-The back-end is built with a REST API using Flask in Python and the Beautiful Soup scraping library. The front end is built with React
+This application scrapes the first pages (number of pages supplied by the user) of the Hacker News website, and then returns the top links (number of links supplied by the user) based on how many points they received to a table on the front-end. 
+The back-end is built with a REST API using Flask in Python and the Beautiful Soup scraping library. The front end is built with Vue.js. 
 
 ## Getting Started
 
@@ -45,11 +45,10 @@ These tests handle linting with jshint, link checking, and some cross-page and u
 
 ## Built With
 
-* [Node.JS](https://nodejs.org/) - JavaScript runtime that allows server-side JavaScript
-* [React]
-* [Python]
-* [Flask]
-* [Beautiful Soup]
+* [Vue](https://vuejs.org/) - A front-end progressive JavaScript framework
+* [Python](https://www.python.org/) - Programming language sued on the backend
+* [Flask](https://flask.palletsprojects.com/en/3.0.x/) - A Python Web Server used as a REST API on the backend
+* [BeautifulSoup](https://pypi.org/project/beautifulsoup4/) - A Python library for scraping information from web pages
 
 ## Authors
 
