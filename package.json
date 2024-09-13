@@ -13,7 +13,7 @@
     "dev": "concurrently --kill-others --names 'SERVER,CLIENT' --prefix-colors 'yellow,blue' \"yarn dev:backend\" \"yarn dev:frontend\"",
     "dev:frontend": "cp .env ./frontend && cd frontend && yarn dev",
     "dev:backend": "cd backend && cross-env .venv/bin/python server.py --env development",
-    "build": "cp .env ./frontend && cd frontend && vite build",
+    "build": "cp .env ./frontend && cd frontend && yarn build",
     "prod": "cd backend && cross-env .venv/bin/python server.py --env production"
   },
   "repository": {

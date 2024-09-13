@@ -70,4 +70,6 @@ if __name__ == '__main__':
     elif args.env == 'production':
         # Run Flask using Waitress in production mode
         port = int(os.getenv("VITE_BACKEND_PORT_PROD", 8080))  # Default to 8080 if not found
+        print('Running server on port', port)
         serve(app, host='0.0.0.0', port=port)
+
