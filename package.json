@@ -5,9 +5,29 @@
   "description": "Scrapes the Hacker News website and lists the top stories by points",
   "author": "Tom Brown <tomrembrown@proton.me>",
   "license": "ISC",
+  "workspaces": [
+    "frontend"
+  ],
+  "scripts": {
+    "setup": "yarn install && cd backend && cross-env .venv/bin/python -m pip install -r requirements.txt && cd ..",
+    "dev": "concurrently --kill-others --names 'SERVER,CLIENT' --prefix-colors 'yellow,blue' \"yarn dev:backend\" \"yarn dev:frontend\"",
+    "dev:frontend": "cp .env ./frontend && cd frontend && yarn dev",
+    "dev:backend": "cd backend && cross-env .venv/bin/python server.py --env development",
+    "build": "cp .env ./frontend && cd frontend && vite build",
+    "prod": "cd backend && cross-env .venv/bin/python server.py --env production"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Tom-js-python/hacker_news_reader.git"
   },
-  "packageManager": "yarn@4.4.0"
+  "packageManager": "yarn@4.4.0",
+  "devDependencies": {
+    "@vue/eslint-config-prettier": "^9.0.0",
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.9.1",
+    "eslint-plugin-cypress": "^3.5.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "prettier": "^3.3.3"
+  }
 }

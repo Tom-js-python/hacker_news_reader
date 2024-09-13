@@ -3,7 +3,12 @@ import TheMenuBar from './components/TheMenuBar.vue'
 import TheLinksTable from './components/TheLinksTable.vue'
 import { ref } from 'vue'
 
-const API_URL = 'http://127.0.0.1:5000/'
+const MODE = import.meta.env.MODE
+
+const apiBaseUrl =
+  MODE == 'development'
+    ? import.meta.env.VITE_BACKEND_URL_DEV + ':' + import.meta.env.VITE_BACKEND_PORT_DEV
+    : import.meta.env.VITE_BACKEND_URL_PROD + ':' + import.meta.env.VITE_BACKEND_PORT_PROD
 const data_message = ref('No Links Are Loaded')
 const news_links = ref([])
 
@@ -17,7 +22,7 @@ async function onToggle(formInfo) {
     min_points: formInfo.minPoints
   })
   if (isLoaded) {
-    const total_url = API_URL + '?' + params.toString()
+    const total_url = apiBaseUrl + '?' + params.toString()
     let raw_data = await fetch(total_url)
     let data = await raw_data.json()
     data_message.value = 'Loaded'
