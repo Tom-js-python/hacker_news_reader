@@ -9,7 +9,7 @@
     "frontend"
   ],
   "scripts": {
-    "create_venv": "cd backend && python3 -m venv .venv && cd..",
+    "create_venv": "cd backend && python3 -m venv .venv && cd ..",
     "setup_backend": "cd backend && cross-env .venv/bin/python -m pip install -r requirements.txt && cd ..",
     "dev": "concurrently --kill-others --names 'SERVER,CLIENT' --prefix-colors 'yellow,blue' \"yarn dev:backend\" \"yarn dev:frontend\"",
     "dev:frontend": "cp .env ./frontend && cd frontend && yarn dev",
