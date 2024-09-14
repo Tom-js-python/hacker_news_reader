@@ -65,7 +65,7 @@ env.bak/
 venv.bak/
 
 # PyCharm
-#  .gitignore file for PyCharm IDE is in its own subdirectory .idea
+.idea/
 
 # Flask stuff:
 instance/

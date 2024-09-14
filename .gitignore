@@ -12,9 +12,34 @@
 #!.yarn/cache
 .pnp.*
 
-# Mac OS files
+# System Files
 .DS_Store
+Thumbs.db
 
 # Editor Files
 .editorconfig
 node_modules
+
+# IDEs and editors
+.idea
+.vscode/*
+!.vscode/extensions.json
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
