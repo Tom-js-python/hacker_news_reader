@@ -15,8 +15,7 @@
     "dev:frontend": "cp .env ./frontend && cd frontend && yarn dev",
     "dev:backend": "cd backend && cross-env .venv/bin/python server.py --env development",
     "build": "cp .env ./frontend && cd frontend && yarn build",
-    "prod": "cd backend && cross-env .venv/bin/python server.py --env production",
-    "prod_background": "cd backend && nohup .venv/bin/python server.py --env production > output.log 2>&1 &"
+    "prod": "cd backend && cross-env .venv/bin/python server.py --env production"
   },
   "repository": {
     "type": "git",
