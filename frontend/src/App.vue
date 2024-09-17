@@ -7,8 +7,16 @@ const MODE = import.meta.env.MODE
 
 const apiBaseUrl =
   MODE == 'development'
-    ? import.meta.env.VITE_BACKEND_URL_DEV + ':' + import.meta.env.VITE_BACKEND_PORT_DEV
-    : import.meta.env.VITE_BACKEND_URL_PROD + ':' + import.meta.env.VITE_BACKEND_PORT_PROD
+    ? import.meta.env.VITE_BACKEND_PROTOCOL_DEV +
+      '://' +
+      import.meta.env.VITE_BACKEND_HOST_DEV +
+      ':' +
+      import.meta.env.VITE_BACKEND_PORT_DEV
+    : import.meta.env.VITE_BACKEND_PROTOCOL_PROD +
+      '://' +
+      import.meta.env.VITE_BACKEND_HOST_PROD +
+      ':' +
+      import.meta.env.VITE_BACKEND_PORT_PROD
 const data_message = ref('No Links Are Loaded')
 const news_links = ref([])
 
