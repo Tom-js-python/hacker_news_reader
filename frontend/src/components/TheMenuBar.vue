@@ -5,10 +5,10 @@ import { ref } from 'vue'
 const dataLoaded = ref(false)
 
 // Information about links to send to API
-const numLinks = ref(5)
-const numPages = ref(15)
+const numLinks = ref(3)
+const numPages = ref(3)
 const searchTerm = ref('')
-const minPoints = ref(400)
+const minPoints = ref(100)
 
 function loadData() {
   dataLoaded.value = !dataLoaded.value
