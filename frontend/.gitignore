@@ -1,3 +1,6 @@
+# The .env file in root directory is included in git - but here it is overwritten so ignore
+.env
+
 # Logs
 logs
 *.log
