@@ -67,14 +67,14 @@ if __name__ == '__main__':
 
     if args.env == 'development':
         # Run Flask in development mode
-        port = int(os.getenv("VITE_BACKEND_PORT_DEV", 5000))  # Default to 5000 if not found
-        host = os.getenv("VITE_BACKEND_HOST_DEV",'127.0.0.1')
+        port = int(os.getenv("API_BACKEND_PORT_DEV", 5000))  # Default to 5000 if not found
+        host = os.getenv("API_BACKEND_HOST_DEV",'0.0.0.0')
         print(f'Running app in dev mode on host {host} and port {port}')
         app.run(host=host, port=port, debug=True)  # Debug=True enables hot reloading and better error messages
     elif args.env == 'production':
         # Run Flask using Waitress in production mode
-        port = int(os.getenv("VITE_BACKEND_PORT_PROD", 8080))  # Default to 8080 if not found
-        host = os.getenv("VITE_BACKEND_HOST_PROD",'127.0.0.1')
+        port = int(os.getenv("API_BACKEND_PORT_PROD", 8080))  # Default to 8080 if not found
+        host = os.getenv("API_BACKEND_HOST_PROD",'0.0.0.0')
         print(f'Running app in prod mode on host {host} and port {port}')
         serve(app, host=host, port=port)
 
